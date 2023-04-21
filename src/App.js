@@ -32,7 +32,7 @@ function App() {
 
 
    
-   axios.post(`http://localhost:5000/cart`, product)
+   axios.post(`https://backend-production-7f7a.up.railway.app/cart`, product)
       .then(function(res) {
         console.log(res.data);
         

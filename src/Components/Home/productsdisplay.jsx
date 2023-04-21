@@ -32,7 +32,7 @@ function Productdisplay  (props) {
   
   
     axios
-    .get(`http://localhost:5000/prod/?page=${page}`)
+    .get(`https://backend-production-7f7a.up.railway.app/prod/?page=${page}`)
     .then((res)=>{
         setProducts(res.data);
     })

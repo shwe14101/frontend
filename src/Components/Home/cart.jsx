@@ -13,7 +13,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
 
   useEffect(() => {
 
-    axios.get(`http://localhost:5000/cart`)
+    axios.get(`https://backend-production-7f7a.up.railway.app/cart`)
       .then(res =>{
         console.log(res);
         setCart(res.data);
@@ -31,7 +31,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
     useEffect(() => {
       function fetchsave(){
 
-      axios.get(`http://localhost:5000/saveforlater`)
+      axios.get(`https://backend-production-7f7a.up.railway.app/saveforlater`)
         .then(res =>{
           console.log(res);
           setSaveforLater(res.data);
@@ -47,7 +47,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
     // setSaveforLater([...saveforlater, product]);
     // console.log(saveforlater);
 
-    axios.post(`http://localhost:5000/saveforlater`, product)
+    axios.post(`https://backend-production-7f7a.up.railway.app/saveforlater`, product)
     .then(function(res) {
       console.log(res.data);
     })
@@ -60,7 +60,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
 
     
     handleRemove(product._id);
-    axios.get(`http://localhost:5000/saveforlater`)
+    axios.get(`https://backend-production-7f7a.up.railway.app/saveforlater`)
         .then(res =>{
           console.log(res);
           setSaveforLater(res.data);
@@ -71,7 +71,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
  
     const handleRemove = (id) => {
       const arr = cart.filter((product) => product._id !== id); 
-      axios.delete(`http://localhost:5000/cart/${id}`)  
+      axios.delete(`https://backend-production-7f7a.up.railway.app/cart/${id}`)  
       .then(res => {  
   
          //const arr = cart.filter((product) => product.id !== id); 
@@ -92,7 +92,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
     const handleRemoveFromSaveLater = (id) => {
         const arr = saveforlater.filter((product) => product._id !== id);
 
-        axios.delete(`http://localhost:5000/save/${id}`)  
+        axios.delete(`https://backend-production-7f7a.up.railway.app/save/${id}`)  
       .then(res => {  
   
          //const arr = cart.filter((product) => product.id !== id); 
@@ -107,7 +107,7 @@ const Cart = ({ cart, setCart, handleChange, handleClick }) =>{
     const handleAddagain = (product) =>{
         
         handleClick(product);
-        axios.get(`http://localhost:5000/cart`)
+        axios.get(`https://backend-production-7f7a.up.railway.app/cart`)
         .then(res =>{
           console.log(res);
           setCart(res.data);
